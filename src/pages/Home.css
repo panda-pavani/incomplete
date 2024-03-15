@@ -1,0 +1,58 @@
+.container18 {
+  margin-top: 10px;
+  height: 700px;
+  background-color: #96c6a2; 
+  padding: 20px; 
+  border-radius: 10px; 
+  /* background-image: url('Background/project.png'); */
+  background-size: cover;
+  background-repeat: no-repeat ;
+}
+
+.display-48 {
+  margin:40px 380px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #cbdf6b; 
+}
+
+.lead8 {
+  margin: 150px 320px;
+  font-size: 1.9rem;
+  text-align: left;
+  font-size: 32px;
+  font-weight: 300;
+  color: rgb(213, 154, 105); 
+}
+/* .message{
+  margin: 5px 300px;
+  font-size: 1.2rem;
+  font-weight: 150;
+  color: #5b78cf;
+}
+.message1{
+  margin: 10px 370px;
+  font-size: 1.1rem;
+  font-weight: 150;
+  color: #5b78cf;
+} */
+
+.explore-project{
+  background:-webkit-linear-gradient(#b2bb62,#eb9071);
+ color:#111303;
+ margin: -10px 90px;
+ font-size: 1.3rem;
+ font-weight: 550;
+}
+
+.explore-project:hover{
+  background:-webkit-linear-gradient(#3c3318,#d75838);
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    text-align: center;
+    margin-top: 30px;
+  }
+}

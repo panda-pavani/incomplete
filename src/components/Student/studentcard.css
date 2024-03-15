@@ -1,0 +1,84 @@
+*{
+    box-sizing:content-box;
+}
+.bigcontainer {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height:690px;
+    /* background-image: url('studentpage.jpg');  */
+    background-size: cover; 
+}
+.container2 {
+    /* max-width: 1500px; */
+    margin: 25px ;
+    padding: 30px;
+    background-color: #7c4f7e;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width:195px;
+    max-height:160px; 
+    transition: border-width 0.3s transform 0.4s padding 2s;     
+}
+.container2:hover{
+   background:  -webkit-linear-gradient(#03e6ff, #eb0aab);
+   padding:31px;
+   transition: padding 0.5s; 
+}
+ /* .container2:focus{
+   background-color: #b81111;
+   border-width: 20px;
+}  */
+
+.container2 h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #413f3f;
+}
+
+.category-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width:190px;
+    max-height:145px;
+    margin:-25px;
+    overflow:hidden;
+    transition: border-width 0.3s, transform 0.3s;
+}
+.categoryURL{
+    min-width: 190px;
+    min-height: 145px; 
+    transition: border-width 0.3s, transform 0.3s;
+}
+/* .category-box:focus-within {
+    border-width: 10px; /* Increase border width on focus */
+    /* transform: translateY(-5px); Move element vertically on focus */
+    /* border-color:rgb(151, 7, 7);  */
+
+.category-box h3{
+    color: #e5d7d7;
+}
+.category h3 {
+    margin-bottom: 10px;
+    color: #e8dada;
+}
+
+.Explore {
+    padding: 6px 10px;
+    background:-webkit-linear-gradient(#080808,#eb719e);
+    color: #e8e1e1;
+    border-color: aqua;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 40px 70px;
+    transition: 0.3s;
+    
+  }
+  
+  .Explore:hover {
+    background:-webkit-linear-gradient(#eca6d2,#dd86b1);
+    
+  }

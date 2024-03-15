@@ -1,84 +1,59 @@
-*{
-    box-sizing:content-box;
-}
+
 .bigcontainer {
-    
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    height:690px;
-    /* background-image: url('studentpage.jpg');  */
-    background-size: cover; 
+    margin-top: 80px;
+    padding: 60px;
+    gap: 40px;
+    justify-content: center;
+    /* background-color: rgb(210, 255, 240); */
 }
 .container2 {
-    /* max-width: 1500px; */
-    margin: 25px ;
-    padding: 30px;
-    background-color: #7c4f7e;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width:195px;
-    max-height:160px; 
-    transition: border-width 0.3s transform 0.4s padding 2s;     
-}
-.container2:hover{
-   background:  -webkit-linear-gradient(#03e6ff, #eb0aab);
-   padding:31px;
-   transition: padding 0.5s; 
-}
- /* .container2:focus{
-   background-color: #b81111;
-   border-width: 20px;
-}  */
-
-.container2 h1 {
+    /* padding: 5px; */
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;   
+    border: 1px solid rgb(209, 213, 213);
+    border-bottom: 3px solid blue;
+    /* border-width: 50px; */
+    border-radius: 4px;
+    width: 200px;
+    height: 160px;
     text-align: center;
-    margin-bottom: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #413f3f;
 }
-
-.category-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width:190px;
-    max-height:145px;
-    margin:-25px;
-    overflow:hidden;
-    transition: border-width 0.3s, transform 0.3s;
+.categoryURL img{
+   height: 100px;
+   width: 200px;
+   z-index: 5;
 }
-.categoryURL{
-    min-width: 190px;
-    min-height: 145px; 
-    transition: border-width 0.3s, transform 0.3s;
+.h3-head{
+    z-index: 10;
+    background: linear-gradient(to top , rgba(0, 0, 0, 0.9), rgba(14, 14, 221, 0.4));
+   height: 100px;
+   width: 200px;
+   position: absolute;
+   top: 0px;
 }
-/* .category-box:focus-within {
-    border-width: 10px; /* Increase border width on focus */
-    /* transform: translateY(-5px); Move element vertically on focus */
-    /* border-color:rgb(151, 7, 7);  */
-
-.category-box h3{
-    color: #e5d7d7;
+.categoryURL h3{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+   color: #ffffff;
 }
-.category h3 {
-    margin-bottom: 10px;
-    color: #e8dada;
-}
-
 .Explore {
-    padding: 6px 10px;
-    background:-webkit-linear-gradient(#080808,#eb719e);
-    color: #e8e1e1;
-    border-color: aqua;
-    border-radius: 25px;
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    padding: 6px 16px;
+ background-color: blue;
+ border: 2px solid blue;
+    color: #ffffff;
     cursor: pointer;
-    margin: 40px 70px;
-    transition: 0.3s;
-    
+    font-size: 15px;
   }
+.Explore:hover {
+     background-color: white;
+     color: blue;
+
+    }
   
-  .Explore:hover {
-    background:-webkit-linear-gradient(#eca6d2,#dd86b1);
-    
-  }

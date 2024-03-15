@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './projectdesc.css';
 
 function About() {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
   const [isRequested, setIsRequested] = useState(false);
-  
   const [Name, setName] = useState('');
   const [Branch, setBranch] = useState('');
   const [CPI, setCPI] = useState('');
@@ -16,7 +16,7 @@ function About() {
     setIsCheckboxChecked(event.target.checked);
   };
 
-  const handleRequestClick = () => {
+  const handleRequestClick = async () => {
     const mandatoryFields = document.querySelectorAll('.mandatory-field');
     let allFieldsFilled = true;
     mandatoryFields.forEach(field => {
@@ -30,6 +30,23 @@ function About() {
       return;
     }
 
+    try {
+      const uniqueID = 'abhas'; // Replace with the actual unique ID
+      const url = `https://mohdnasar-kartiks-projects-297f2e09.vercel.app/api/professor/${uniqueID}/createproject`;
+  
+      const response = await axios.post(url, {
+
+      });
+  
+      if (response.status === 201) {
+        console.log('Project created successfully');
+        // navigate('/Project_list_prof');
+      } else {
+        console.error('Failed to create project');
+      }
+    } catch (error) {
+      console.error('Error creating project:', error.message);
+    }
     if (isCheckboxChecked && !isRequested) {
       setIsRequested(true);
       setIsCheckboxChecked(false);
@@ -93,6 +110,6 @@ function About() {
       </div>
     </div>
   );
-}
+  }
 
 export default About;

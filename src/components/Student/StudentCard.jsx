@@ -5,31 +5,38 @@ import domain from './domain.js'
 import categories from './domain.js';
 
 function ProjectCategoriesCard(props) {
-   // const [urlCategory, setUrlCategory]=useState(props.image)
+    function handleExplore() {
+      props.NameOfCategory(props.domain);
+    }
+  
     return (
-        <div className="bigcontainer1">
-            <div className="container2" >
-            <div className="category-box">
-                <div className='categoryURL' style={{backgroundImage:`url(${props.bimage})`}} >
-                    <h3>{props.domain}</h3>
-                    <Link to="/ProjectPage"><button className='Explore'>Explore </button></Link>
-                </div>
-            </div>
+      <div className="container2">
+        <div className='categoryURL'>
+          <img src={props.bimage} alt="" />
+          <div className="h3-head">
+            <h3>{props.domain}</h3>
+          </div>
+          <Link to="/ProjectPage">
+            <button onClick={handleExplore} className='Explore'>
+              Explore
+            </button>
+          </Link>
         </div>
-        </div>
-        
+      </div>
     );
-}
-
-function ProjectCategories(){
+  }
+  
+function ProjectCategories(props){
     return(
         <div className='bigcontainer'>
             {/* <h1>Project Categories</h1> */}
             
             {
-                domain.map((item)=>{
+                domain.map((item, index)=>{
                     return(
                         <ProjectCategoriesCard
+                        key ={index}
+                        NameOfCategory = {props.getNameOfCategory}
                          domain={item.domain}
                          bimage={item.image}
                         />

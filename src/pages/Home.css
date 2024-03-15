@@ -1,58 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .container18 {
-  margin-top: 10px;
-  height: 700px;
-  background-color: #96c6a2; 
+  margin-top: 80px;
+  height: auto;
+  background-color: #ffffff; 
+  /* background-color: rgb(88, 255, 199); */
   padding: 20px; 
-  border-radius: 10px; 
-  background-image: url('Background project.png');
-  background-size: cover;
-  background-repeat: no-repeat ;
+  display: flex;
+  padding: 0px 80px;
+  justify-content: space-between;
 }
-
-.display-48 {
-  margin:40px 380px;
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #cbdf6b; 
+.explore_buttons_home{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 70px;
+  align-items: center;
 }
-
-.lead8 {
-  margin: 150px 320px;
-  font-size: 1.9rem;
-  text-align: left;
-  font-size: 32px;
-  font-weight: 300;
-  color: rgb(213, 154, 105); 
+.explore_buttons_home button{
+ margin-right: 40px;
 }
-/* .message{
-  margin: 5px 300px;
-  font-size: 1.2rem;
-  font-weight: 150;
-  color: #5b78cf;
+.row8{
+  height: 450px;
+  width: 500px;
+  padding: 20px 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
-.message1{
-  margin: 10px 370px;
-  font-size: 1.1rem;
-  font-weight: 150;
-  color: #5b78cf;
-} */
-
+.explore-faculty{
+  border: 2px solid blue;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 255);
+  padding: 10px 20px;
+  font-size: 18px;
+}
+.explore-faculty:hover{
+  border: 2px solid blue;
+  background-color: rgb(0, 0, 255);
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  font-size: 18px;
+}
 .explore-project{
-  background:-webkit-linear-gradient(#b2bb62,#eb9071);
- color:#111303;
- margin: -10px 90px;
- font-size: 1.3rem;
- font-weight: 550;
-}
+  border: 2px solid blue;
+  background-color: blue;
+  color: rgb(255, 255, 255);
+ padding: 10px 20px;
+ font-size: 18px;
 
+}
 .explore-project:hover{
-  background:-webkit-linear-gradient(#3c3318,#d75838);
+  border: 2px solid blue;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 255);
 }
-
-@media (max-width: 768px) {
-  .col-md-4 {
-    text-align: center;
-    margin-top: 30px;
-  }
+.row8 h1{
+   font-size: 40px;
+   color: rgb(0, 0, 0);
+}
+.row8 p{
+  font-family: "Poppins", sans-serif;
+  color: rgb(16, 60, 62);
+ font-size: 16px;
+}
+.row8 span{
+   font-size: 40px;
+   color: rgb(0, 0, 255);
 }

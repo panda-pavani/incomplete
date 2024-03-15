@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./projectcard.css";
 import ProjectDetails from "./projectdetails";
 import "./ProjectDesc.jsx";
@@ -11,7 +12,7 @@ function TotalProjects(props) {
 
     if (projectDiv.style.height == "370px") {
       button.innerText = "Show More";
-      projectDiv.style.height = "160px";
+      projectDiv.style.height = "150px";
     } else {
       button.innerText = "Show Less ";
       projectDiv.style.height = "370px";
@@ -20,6 +21,7 @@ function TotalProjects(props) {
   const check= props.studentRegistered<props.maxStudents;
 
   return (
+  
     <div id={`project-${props.index}`} className="each-project">
       <h2>{props.name}</h2>
       <p>{props.details}</p>
@@ -50,14 +52,14 @@ function TotalProjects(props) {
               {props.Name}
             </span>
           </span>
-          <span style={{ color: "blue", fontWeight: "530" }}>
+          {/* <span style={{ color: "blue", fontWeight: "530" }}>
             Email:{" "}
             <span
               style={{ color: "black", fontWeight: "500", fontSize: "15px" }}
             >
               {props.email}
             </span>
-          </span>
+          </span> */}
           <span style={{ color: "blue", fontWeight: "530" }}>
             Open for:{" "}
             <span
@@ -66,18 +68,15 @@ function TotalProjects(props) {
               {props.batches}
             </span>
           </span>
-          {props.resume ? (
-            <span style={{ color: "blue", fontWeight: "500" }}>
-              Resume required:{" "}
-              <span
-                style={{ color: "black", fontWeight: "500", fontSize: "15px" }}
-              >
-                {props.isResume}
-              </span>
+          <span style={{ color: "blue", fontWeight: "530" }}>
+            Resume Required:{" "}
+            <span
+              style={{ color: "black", fontWeight: "500", fontSize: "15px" }}
+            >
+              {props.isResume}
             </span>
-          ) : (
-            ""
-          )}
+          </span>
+      
           <span style={{ color: "blue", fontWeight: "500" }}>
             Students Registered:{" "}
             <span
@@ -86,14 +85,14 @@ function TotalProjects(props) {
               {props.students}/{props.total}
             </span>
           </span>
-          <span style={{ color: "blue", fontWeight: "500" }}>
+          {/* <span style={{ color: "blue", fontWeight: "500" }}>
             Additional Details:{" "}
             <span
               style={{ color: "black", fontWeight: "500", fontSize: "15px" }}
             >
               {props.additional}
             </span>
-          </span>
+          </span> */}
         </div>
         {/* <div className="editing">
           <button>Edit</button>
@@ -101,44 +100,112 @@ function TotalProjects(props) {
          </div> */}
       </div>
       {props.isRequest ? (
-      <div><Link to="/ProjectDesc"><button>Request</button></Link></div>
+      <div className="request-button-css"><Link to="/ProjectDesc"><button>Request</button></Link></div>
       ) : ("")}
     </div>
   );
 }
 
-function ProjectCategory() {
+function ProjectCategory(props) {
+  console.log(props.CategoryName);
+
+  const [facultyData, setFacultyData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://mohdnasar.vercel.app/api/user/faculty/projects/?projectCategory=${props.CategoryName}`
+        );
+        console.log(response.data);
+        setFacultyData(response.data); // Assuming the response contains an array of faculty data
+      } catch (error) {
+        console.error("Error fetching faculty data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://mohdnasar.vercel.app/api/user/faculty"
+  //       );
+  //       // console.log(response.data);
+  //       setFacultyData(response.data); // Assuming the response contains an array of faculty data
+  //     } catch (error) {
+  //       console.error("Error fetching faculty data:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+
   return (
     <div className="outer-background">
-      {/* <h1 className='random'>this is home page</h1> */}
       <div className="prof-projects-list">
         <div className="porjects-heading-note">
           <h2>Ongoing projects:-</h2>
-          {/* <Link className="a" to="/About"><button>Add New Project</button></Link>  */}
         </div>
+     
+          {
+            facultyData.map((item, index) => {
+              return (
+                <TotalProjects
+                  key={index}
+                  index ={item._id}
+                  // index={item.name + index} // Note: You might want to use a unique identifier here
+                  name={item.name}
+                  Name={item.name}
+                  email={item.email}
+                  details={item.description}
+                  cpi={item.cpirequired}
+                  category ={item.projectCategory}
+                  batches={item.openfor}
+                  additional={item.Openfor}
+                  preReq={item.openfor}
+                  resume={item.resumerequired}
+                  students={item.studentRegistered}
+                  total={item.maxstudents}
+                  isResume={item.resumerequired}
+                  isRequest={item.isRequest}
+                />
+              );
+            })
+          }
 
-        {ProjectDetails.map((item, index) => {
-          //if (item.studentRegistered < item.maxStudents)
-            return (
-              <TotalProjects
-                key={index} //
-                index={index} //
-                name={item.title} //
-                Name={item.name} //
-                email={item.email} //
-                details={item.description} //
-                cpi={item.cpi} //
-                batches={item.Openfor} //
-                additional={item.Openfor}
-                preReq={item.Openfor} //
-                resume={item.resume} //
-                students={item.studentRegistered}
-                total={item.maxStudents}
-                isResume={item.isResume}
-                isRequest={item.isRequest}
-              />
-            );
-        })}
+        {/* {facultyData.map((item) => {
+  // console.log(item.name);
+
+  return item.projects.map((iterator, index) => {
+    // console.log(item.name + index); // Corrected: Wrap in curly braces
+    return (
+      <TotalProjects
+        key={index}
+        index ={iterator._id}
+        // index={item.name + index} // Note: You might want to use a unique identifier here
+        name={iterator.name}
+        Name={iterator.name}
+        email={iterator.email}
+        details={iterator.description}
+        cpi={iterator.cpirequired}
+        category ={iterator.projectCategory}
+        batches={iterator.openfor}
+        additional={iterator.Openfor}
+        preReq={iterator.openfor}
+        resume={iterator.resumerequired}
+        students={iterator.studentRegistered}
+        total={iterator.maxstudents}
+        isResume={iterator.resumerequired}
+        isRequest={iterator.isRequest}
+      />
+    );
+  });
+})} */}
+
+
       </div>
     </div>
   );

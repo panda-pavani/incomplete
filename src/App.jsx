@@ -18,6 +18,7 @@ import LogOut from "./pages/LogOut";
 import Student from "./pages/Student";
 import ProjectDesc from "./components/Student/ProjectDesc";
 import UserProfile from "./pages/UserProfile";
+import ProjectCategories from "./components/Student/StudentCard";
 import ProjectCategory from "./components/Student/ProjectCategories";
 // import ProjectPage from "./components/Student/ProjectPage";
 import Home from "./pages/Home";
@@ -25,18 +26,21 @@ import History from './pages/History';
 import Requests from "./pages/Requests";
 import EnrolledStudents from "./pages/EnrolledStudents";
 import ProfProfile from "./pages/ProfProfile";
-// import Login from "./pages/Login";
-
 
 function App() {
   var isWho = "user";
  const [isAuthorized, setAuthorization] = useState(false);
+ const [CategoryName, setCategoryName] = useState("");
 
  const getData = (isAuth) => {
   // Handle data from child component
   // console.log("Data received in parent:", isAuth);
   setAuthorization(isAuth);
 };
+
+function getNameOfCategory(x){
+  setCategoryName(x);
+}
 
      if(true){
       return (
@@ -61,8 +65,8 @@ function App() {
 
               <Route path="Home" element={<Home />} />
           <Route path="LogOut" element={<LogOut />} />
-          <Route path="Student" element={<Student />} />
-          <Route path="ProjectPage" element={<ProjectCategory/>} /> 
+          <Route path="Student" element={<ProjectCategories getNameOfCategory ={getNameOfCategory} />} />
+          <Route path="ProjectPage" element={<ProjectCategory CategoryName ={CategoryName} />} /> 
           <Route path="ProjectDesc" element={<ProjectDesc />} />
           <Route path="UserProfile" element={<UserProfile/>}/>
           <Route path="History" element={<History />} />

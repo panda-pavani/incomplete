@@ -1,6 +1,6 @@
-
 .container9 {
   margin-top: 50px ;
+  height:328px;
   /* background-color: #b3d4b7; */
 }
 .container8{
@@ -33,6 +33,10 @@
   background-color: #b3d4b7;
   border-radius: 0px;
   /* background-color: transparent; */
+}
+.profile-info1{
+  margin:-20px 31px;
+  height:40px;
 }
 
 .row .col-md-3 .profile-img {
@@ -89,6 +93,19 @@ button:hover {
   margin-top: 0px;
   width:56rem;
   
+}
+.table-container1{
+  margin-top:20px;
+  width:56rem;
+}
+.tableid{
+  width:40px;
+}
+.tableproject{
+  width:300px;
+}
+.tablestatus{
+  width:300px;
 }
 
 table {

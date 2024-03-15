@@ -1,4 +1,5 @@
-import React from 'react'
+import{ React, useState, useEffect }from 'react'
+import axios from 'axios';
 import './prof.css'
 // import '../../pages/Navbar.css'
 import  CseProfData from './main';
@@ -22,20 +23,38 @@ function ProfCard(props){
                 </div>
             </div>
             <div className='box-2'>
-                <p>{props.research}</p>
+                <p><span>Research Areas:- </span>{props.research}</p>
             </div>
         </div>
     );
 }
 
 
-function Prof() {
+function Prof(props) {
+
+    const [facultyData, setFacultyData] = useState([]);
+    const [kartik, setKartik] = useState("Computer Science And Engineering")
+       const url = `https://mohdnasar.vercel.app/api/user/faculty/?department=${props.departmentName}`;
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            url
+          );
+          console.log(response.data);
+          setFacultyData(response.data);       
+        } catch (error) {
+          console.error("Error fetching faculty data:", error);
+        }
+      };
+  
+      fetchData();
+    }, []);
 
   return (
     <div id='faculty-page' className='faculty-page'>
-        <h1 className='random-prof'>Computer Science and Engineering</h1>
         {
-            CseProfData.map((item) => {
+            facultyData.map((item) => {
               return (
                <ProfCard 
                department ={item.department}

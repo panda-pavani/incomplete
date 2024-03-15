@@ -99,9 +99,9 @@ function TotalProjects(props) {
           <button>Delete</button>
          </div> */}
       </div>
-      {props.isRequest ? (
+      
       <div className="request-button-css"><Link to="/ProjectDesc"><button>Request</button></Link></div>
-      ) : ("")}
+    
     </div>
   );
 }

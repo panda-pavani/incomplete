@@ -42,40 +42,68 @@ function getNameOfCategory(x){
   setCategoryName(x);
 }
 
-     if(true){
-      return (
-        <>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<NavBar who={isWho} />}>
-              <Route path="Project_list_prof" element={<Project_list_prof />} />
-              <Route path="DataTable" element={<DataTable />} />
-              <Route path="NewProject" element={<NewProject />} />
-              <Route path="Requests" element={<Requests />} />
-              <Route path="ProfProfile" element={<ProfProfile />} />
-              <Route path="EnrolledStudents" element={<EnrolledStudents />} />
-              <Route path="Faculty" element={<Faculty />}>
+     if(isAuthorized){
+      if(isWho ==="faculty"){
+
+        return (
+          <>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<NavBar who={isWho} />}>
+              <Route index element={<Project_list_prof />} />
+                <Route path="Project_list_prof" element={<Project_list_prof />} />
+                <Route path="DataTable" element={<DataTable />} />
+                <Route path="NewProject" element={<NewProject />} />
+                <Route path="Requests" element={<Requests />} />
+                <Route path="ProfProfile" element={<ProfProfile />} />
+                <Route path="EnrolledStudents" element={<EnrolledStudents />} />
+                <Route path="ContactUs" element={<ContactUs />} />
+            <Route path="LogOut" element={<LogOut />} />
+            <Route path="UserProfile" element={<UserProfile/>}/>
+           </Route>
+            </Routes>
+          </BrowserRouter>
+          </>
+        )
+                
+      }else if(isWho ==="user"){
+
+        return (
+          <>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<NavBar who={isWho} />}>
+              
                
-              <Route path="Cse" element={<Cse />} />
-              <Route path="Ee" element={<Ee />} />
-              <Route path="Ce" element={<Ce />} />
-    
-               </Route>
-              <Route path="ContactUs" element={<ContactUs />} />
+                <Route path="DataTable" element={<DataTable />} />
 
-              <Route path="Home" element={<Home />} />
-          <Route path="LogOut" element={<LogOut />} />
-          <Route path="Student" element={<ProjectCategories getNameOfCategory ={getNameOfCategory} />} />
-          <Route path="ProjectPage" element={<ProjectCategory CategoryName ={CategoryName} />} /> 
-          <Route path="ProjectDesc" element={<ProjectDesc />} />
-          <Route path="UserProfile" element={<UserProfile/>}/>
-          <Route path="History" element={<History />} />
+                <Route path="Faculty" element={<Faculty />}>
+                 
+                <Route path="Cse" element={<Cse  />} />
+                <Route path="Ee" element={<Ee />} />
+                <Route path="Ce" element={<Ce />} />
+      
+                 </Route>
+                <Route path="ContactUs" element={<ContactUs />} />
+  
+                <Route index element={<Home />} />
+                <Route path="Home" element={<Home />} />
+            <Route path="LogOut" element={<LogOut />} />
+            <Route path="Student" element={<ProjectCategories getNameOfCategory ={getNameOfCategory} />} />
+            <Route path="ProjectPage" element={<ProjectCategory CategoryName ={CategoryName} />} /> 
+            <Route path="ProjectDesc" element={<ProjectDesc />} />
+            <Route path="UserProfile" element={<UserProfile/>}/>
+            <Route path="History" element={<History />} />
+  
+              </Route>
+            </Routes>
+          </BrowserRouter>
+          </>
+        )
+                
+      }
 
-            </Route>
-          </Routes>
-        </BrowserRouter>
-        </>
-      )
+     
      }
 
      else{

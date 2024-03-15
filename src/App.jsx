@@ -18,7 +18,8 @@ import LogOut from "./pages/LogOut";
 import Student from "./pages/Student";
 import ProjectDesc from "./components/Student/ProjectDesc";
 import UserProfile from "./pages/UserProfile";
-import ProjectPage from "./components/Student/ProjectPage";
+import ProjectCategory from "./components/Student/ProjectCategories";
+// import ProjectPage from "./components/Student/ProjectPage";
 import Home from "./pages/Home";
 import History from './pages/History';
 import Requests from "./pages/Requests";
@@ -28,7 +29,7 @@ import ProfProfile from "./pages/ProfProfile";
 
 
 function App() {
-  var isWho = "faculty";
+  var isWho = "user";
  const [isAuthorized, setAuthorization] = useState(false);
 
  const getData = (isAuth) => {
@@ -61,7 +62,7 @@ function App() {
               <Route path="Home" element={<Home />} />
           <Route path="LogOut" element={<LogOut />} />
           <Route path="Student" element={<Student />} />
-          <Route path="ProjectPage" element={<ProjectPage/>} /> 
+          <Route path="ProjectPage" element={<ProjectCategory/>} /> 
           <Route path="ProjectDesc" element={<ProjectDesc />} />
           <Route path="UserProfile" element={<UserProfile/>}/>
           <Route path="History" element={<History />} />

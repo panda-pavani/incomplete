@@ -1,5 +1,5 @@
 import React from 'react';
-// import './Home.css';
+import './Requests.css';
 
 const Contacts = [
   {
@@ -56,9 +56,9 @@ const Contacts = [
 
 const FacultyCard = ({ project, name, rollNo, department, email }) => {
   return (
-    <div className="card">
-      <h1>Project: {project}</h1>
-      <h2>Name: {name}</h2>
+    <div className="facultycard">
+      <h2 className='BC'>Project: {project}</h2>
+      <h3 className='BC'>Name: {name}</h3>
       <p>Department: {department}</p>
       <p>Roll Number: {rollNo}</p>
       <p>Email: {email}</p>
@@ -71,7 +71,7 @@ const FacultyCard = ({ project, name, rollNo, department, email }) => {
 const Requests = () => {
   return (
     <div>
-        <div className='cont'>
+        <div className='MC'>
           { Contacts.map((item) => {
             return (
               <FacultyCard 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./projectcard.css";
 import ProjectDetails from "./projectdetails";
-// import "./ProjectDesc.jsx";
+import "./ProjectDesc.jsx";
 import { Link } from "react-router-dom";
 
 function TotalProjects(props) {
@@ -11,7 +11,7 @@ function TotalProjects(props) {
 
     if (projectDiv.style.height == "370px") {
       button.innerText = "Show More";
-      projectDiv.style.height = "200px";
+      projectDiv.style.height = "160px";
     } else {
       button.innerText = "Show Less ";
       projectDiv.style.height = "370px";

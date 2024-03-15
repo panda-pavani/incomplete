@@ -7,7 +7,7 @@
   border: 1px solid rgb(225, 225, 225);
   border-radius: 5px;
   box-shadow: 0px 0px 6px rgb(222, 222, 222);
-  height: 190px;
+  height: 160px;
   width: auto;
   padding: 10px 40px;
   padding-bottom: 50px;
@@ -81,7 +81,6 @@ color: white;
   /* color: blueviolet; */
   margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
-
   display: flex;
   flex-direction: column;
   gap: 12px;

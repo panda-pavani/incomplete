@@ -8,13 +8,13 @@ function TotalProjects(props) {
   const expand = () => {
     const projectDiv = document.getElementById(`project-${props.index}`);
     const button = document.getElementById(`expand-button-${props.index}`);
-    if(projectDiv.style.height == '280px'){
+    if(projectDiv.style.height == '380px'){
       button.innerText ="Show More";
       projectDiv.style.height = '200px';
     }
     else{
       button.innerText ="Show Less ";
-      projectDiv.style.height = '280px';
+      projectDiv.style.height = '380px';
     }
     setShowDetails(!showDetails);
   };

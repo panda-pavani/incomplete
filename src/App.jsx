@@ -26,102 +26,98 @@ import History from './pages/History';
 import Requests from "./pages/Requests";
 import EnrolledStudents from "./pages/EnrolledStudents";
 import ProfProfile from "./pages/ProfProfile";
+import HomeFaculty from "./pages/HomeFaculty";
 
 function App() {
-  var isWho = "user";
- const [isAuthorized, setAuthorization] = useState(false);
- const [CategoryName, setCategoryName] = useState("");
+  var isWho = "faculty";
+  const [isAuthorized, setAuthorization] = useState(false);
+  const [CategoryName, setCategoryName] = useState("");
 
- const getData = (isAuth) => {
-  // Handle data from child component
-  // console.log("Data received in parent:", isAuth);
-  setAuthorization(isAuth);
-};
+  const getData = (isAuth) => {
+    // Handle data from child component
+    // console.log("Data received in parent:", isAuth);
+    setAuthorization(isAuth);
+  };
 
-function getNameOfCategory(x){
-  setCategoryName(x);
-}
+  function getNameOfCategory(x) {
+    setCategoryName(x);
+  }
 
-     if(isAuthorized){
-      if(isWho ==="faculty"){
+  if (isAuthorized) {
+    if (isWho === "faculty") {
 
-        return (
-          <>
+      return (
+        <>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<NavBar who={isWho} />}>
-              <Route index element={<Project_list_prof />} />
+              <Route path="/" element={<NavBar who={"faculty"} />}>
                 <Route path="Project_list_prof" element={<Project_list_prof />} />
                 <Route path="DataTable" element={<DataTable />} />
                 <Route path="NewProject" element={<NewProject />} />
                 <Route path="Requests" element={<Requests />} />
                 <Route path="ProfProfile" element={<ProfProfile />} />
+                <Route index element={<HomeFaculty />} />
+                <Route path="Home" element={<HomeFaculty />} />
                 <Route path="EnrolledStudents" element={<EnrolledStudents />} />
                 <Route path="ContactUs" element={<ContactUs />} />
-            <Route path="LogOut" element={<LogOut />} />
-            <Route path="UserProfile" element={<UserProfile/>}/>
-           </Route>
-            </Routes>
-          </BrowserRouter>
-          </>
-        )
-                
-      }else if(isWho ==="user"){
-
-        return (
-          <>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<NavBar who={isWho} />}>
-              
-               
-                <Route path="DataTable" element={<DataTable />} />
-
-                <Route path="Faculty" element={<Faculty />}>
-                 
-                <Route path="Cse" element={<Cse  />} />
-                <Route path="Ee" element={<Ee />} />
-                <Route path="Ce" element={<Ce />} />
-      
-                 </Route>
-                <Route path="ContactUs" element={<ContactUs />} />
-  
-                <Route index element={<Home />} />
-                <Route path="Home" element={<Home />} />
-            <Route path="LogOut" element={<LogOut />} />
-            <Route path="Student" element={<ProjectCategories getNameOfCategory ={getNameOfCategory} />} />
-            <Route path="ProjectPage" element={<ProjectCategory CategoryName ={CategoryName} />} /> 
-            <Route path="ProjectDesc" element={<ProjectDesc />} />
-            <Route path="UserProfile" element={<UserProfile/>}/>
-            <Route path="History" element={<History />} />
-  
+                <Route path="LogOut" element={<LogOut />} />
+                <Route path="UserProfile" element={<UserProfile />} />
               </Route>
             </Routes>
           </BrowserRouter>
-          </>
-        )
-                
-      }
-
-     
-     }
-
-     else{
-      return(
-        <>
-        <BrowserRouter>
-          <Routes>
-              <Route index element={<SignIn sendDataToParent = {getData} />} />
-              <Route path="SignUp" element={<SignUp />} />
-              <Route path="SignIn" element={<SignIn sendDataToParent = {getData} />} />
-              
-          </Routes>
-        </BrowserRouter>
         </>
       )
-     
-     }
-   
- }
+
+    } else if (isWho === "user") {
+
+      return (
+        <>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<NavBar who={isWho} />}>
+                <Route path="DataTable" element={<DataTable />} />
+                <Route path="Faculty" element={<Faculty />}>
+                  <Route path="Cse" element={<Cse />} />
+                  <Route path="Ee" element={<Ee />} />
+                  <Route path="Ce" element={<Ce />} />
+                </Route>
+                <Route path="ContactUs" element={<ContactUs />} />
+                <Route index element={<Home />} />
+                <Route path="Home" element={<Home />} />
+                <Route path="LogOut" element={<LogOut />} />
+                <Route path="Student" element={<ProjectCategories getNameOfCategory={getNameOfCategory} />} />
+                <Route path="ProjectPage" element={<ProjectCategory CategoryName={CategoryName} />} />
+                <Route path="ProjectDesc" element={<ProjectDesc />} />
+                <Route path="UserProfile" element={<UserProfile />} />
+                <Route path="History" element={<History />} />
+
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </>
+      )
+
+    }
+
+
+  }
+
+  else {
+    return (
+      <>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<SignIn sendDataToParent={getData} />} />
+            <Route path="SignUp" element={<SignUp />} />
+            <Route path="SignIn" element={<SignIn sendDataToParent={getData} />} />
+
+          </Routes>
+        </BrowserRouter>
+      </>
+    )
+
+  }
+
+}
 
 export default App;

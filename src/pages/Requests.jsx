@@ -58,10 +58,10 @@ const FacultyCard = ({ project, name, rollNo, department, email }) => {
   return (
     <div className="facultycard">
       <h2 className='BC'>Project: {project}</h2>
-      <h3 className='BC'>Name: {name}</h3>
-      <p>Department: {department}</p>
-      <p>Roll Number: {rollNo}</p>
-      <p>Email: {email}</p>
+      <p className='info'>Name: {name}</p>
+      <p className='info'>Department: {department}</p>
+      <p className='info'>Roll Number: {rollNo}</p>
+      <p className='info'>Email: {email}</p>
       <button className="accept-button">ACCEPT</button>
       <button className="reject-button">REJECT</button>
     </div>

@@ -20,6 +20,7 @@ function NavBar(props){
                  <li><Link className="a" to="/ContactUs">Contact us</Link></li>
                  <li><Link className="a" to="/Project_list_prof">Projects</Link></li>
                  <li><Link className="a" to="/ProfProfile">Profile</Link></li>
+                 <li><Link className="a" to="/Home">Home</Link></li>
            </ul>
            
         </div>

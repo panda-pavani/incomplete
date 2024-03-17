@@ -31,14 +31,14 @@ const Contacts = [
         id: 5,
         name: "Nilesh",
         phone: 8305100535,
-        image:" ",
+        image:"images/nilesh.jpg",
         email: "nileshmaneshwar449@gmail.com"
     },
     {
         id: 6,
         name: "Atharv Moghe",
         phone: 6232133073,
-        image:" ",
+        image:"images/atharv.jpg",
         email: "mogheatharv07@gmail.com"
     },
     {
@@ -50,9 +50,9 @@ const Contacts = [
     },
     {
         id: 8,
-        name: "Prabhat",
+        name: "Prabhat Kumar Yadav",
         phone: 7267911138,
-        image:" ",
+        image:"images/prabhat.jpeg",
         email: "prabhatyadav10240@gmail.com"
     },
     {

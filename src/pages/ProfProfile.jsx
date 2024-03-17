@@ -12,8 +12,8 @@ const ProfProfile = () => {
 
   return (
     <div className='Container'>
-      <div style={{ backgroundColor: '#c2e9fb', height: '100vh' }}>
-        <div className="container py-5 h-100" >
+      <div style={{ backgroundColor: 'white', height: '100vh' }}>
+        <div className="container1" >
           <div className="row justify-content-center align-items-center h-100">
             <div className="col655">
               <div className="cardmb-3" style={{ borderRadius: '.5rem' }}>

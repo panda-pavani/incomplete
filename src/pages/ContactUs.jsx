@@ -6,6 +6,23 @@ import './Card.css';
 function ContactUs(){
     return (
         <div>
+        <div className="cont1">
+          <Card
+             key="Indranil Saha"
+             name="Indranil Saha"
+             phone="Instructor"
+             image="images/indrnil.jpg"
+             email="isaha@cse.iitk.ac.in"
+
+          />
+          <Card
+             key="Abhilash"
+             image="images/abhilash.jpeg"
+             name="Yemike Abhilash Chandra"
+             phone="Technical Assistant"
+             email="yemikeac22@iitk.ac.in"
+          />
+        </div>
         <div className='cont'>
           { Contacts.map((item) => {
             return (
@@ -18,8 +35,7 @@ function ContactUs(){
               />
               );
            })}
-           <Card />
-           <Card />
+           
         </div>
         </div>
       );

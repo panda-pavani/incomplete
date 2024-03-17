@@ -43,7 +43,7 @@ function App() {
     setCategoryName(x);
   }
 
-  if (isAuthorized) {
+  if (true) {
     if (isWho === "faculty") {
 
       return (

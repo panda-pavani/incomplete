@@ -1,6 +1,5 @@
 import React from 'react';
-// import img from '../components/Faculty/users.png'
-import "./ProfProfile.css"
+import "./ProfProfile.css";
 
 const ProfProfile = () => {
   const user = {
@@ -13,35 +12,33 @@ const ProfProfile = () => {
 
   return (
     <div className='Container'>
-    <div style={{ backgroundColor: '#f4f5f7', height: '100vh' }}>
-      <div className="container py-5 h-100">
-        <div className="row justify-content-center align-items-center h-100">
-          <div className="col-lg-6 mb-4 mb-lg-0">
-            <div className="card mb-3" style={{ borderRadius: '.5rem' }}>
-              <div className="row g-0">
-                <div className="col-md-4 gradient-custom text-center text-white" style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  <img src="" alt="Avatar" className="my-5" style={{ width: '80px' }} />
-                  <h2>{user.name}</h2>
-                  <p>{user.department}</p>
-                  <i className="fas fa-edit mb-5" />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body p-4">
-                    <hr className="mt-0 mb-4" />
-                    <div className="row pt-1">
-                      <div className="col-6 mb-3">
-                        <p className="mb-0">Email:</p>
-                        <p className="text-muted">{user.email}</p>
+      <div style={{ backgroundColor: '#c2e9fb', height: '100vh' }}>
+        <div className="container py-5 h-100" >
+          <div className="row justify-content-center align-items-center h-100">
+            <div className="col655">
+              <div className="cardmb-3" style={{ borderRadius: '.5rem' }}>
+                <div className="row g-0">
+                  <div className="col-md-8">
+                    <div className="card-body p-4">
+                      <h2>{user.name}</h2>
+                      <p className="mb-3" >{user.department}</p>
+                      <div className="row mb-3">
+                        <div className="col-md-4">
+                          <p className="mb-0">Email:</p>
+                          <p className="text-muted">{user.email}</p>
+                        </div>
+                        <div className="col-md-4">
+                          <p className="mb-0">Office Address:</p>
+                          <p className="text-muted">{user.office}</p>
+                        </div>
                       </div>
-                      <div className="col-6 mb-3">
-                        <p className="mb-0">Office Address:</p>
-                        <p className="text-muted">{user.office}</p>
-                      </div>
-                      <div className="col-6 mb-3">
-                        <p className="mb-0">Research Work:</p>
-                        <p className="text-muted">{user.researchWork}</p>
-                      </div>
+                      <p className="mb-3">Research Work:</p>
+                      <p className="text-muted">{user.researchWork}</p>
                     </div>
+                  </div>
+                  <div className="col-md-4 gradient-custom text-center text-white" >
+                    <img src="https://th.bing.com/th/id/OIP.4n5-ucoXLgr25qVSRKCjbgAAAA?rs=1&pid=ImgDetMain" alt="Avatar" className="my-5" style={{ width: '200px', height: '200px' }}  />
+                    <i className="fas fa-edit mb-5" />
                   </div>
                 </div>
               </div>
@@ -49,7 +46,6 @@ const ProfProfile = () => {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

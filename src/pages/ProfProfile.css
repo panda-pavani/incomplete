@@ -1,16 +1,83 @@
-.gradient-custom {
-    background: #f6d365;
-    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
-    background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
-  }
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .mb-0 {
-     font-weight: 600;
-  }
 
-  .Container{
-    margin-left: 20px;
-    margin-top: 70px;
-    margin-bottom: auto;
-    width: 33%;
-  }
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card-text {
+  color: #343a40;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.row.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-3 {
+  font-size: 20px;
+  inline-size: 300px;
+  color: #35187e;
+  margin-bottom: rem;
+  margin-left: -10px;
+  margin-right: 0px;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  margin-left: -500px;
+  border-radius: 100px;
+  
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: #fff;
+  margin: 0px 10px;
+}
+
+.py-5 {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+.cardmb-3{
+  margin-left: 100px ;
+  margin-right: 100px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-right: -100px;
+  padding-left: -100px;
+}
+.col655{
+  margin-left: -100px;
+  margin-right: 100px;
+  margin-bottom: 50px;
+}

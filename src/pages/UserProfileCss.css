@@ -72,16 +72,16 @@
     color: #666;
   }
   
-  input[type="text"],
+  /* input[type="text"],
   input[type="password"] {
     width: 200px;
     margin-right: 10px;
     padding: 5px;
-    border: 1px solid #a57c7c;
+    border: 1px solid #ff0000;
     border-radius: 3px;
   }
-  
-  button {
+   */
+  /* button {
     padding: 6px 10px;
     background-color: #6d7d8e;
     color: #efe7e7;
@@ -94,7 +94,7 @@
   button:hover {
     background-color: #1e446d;
   }
-  
+   */
   
   .table-container {
     margin-top: 0px;

@@ -88,10 +88,22 @@ function ProfileCard1(project) {
     );
 }
 
-function UserProfile(){
+function UserProfile(props){
+  const  loginDetails = props.loginDetail
     return (
         <div className='flexcard8'>
-            {
+            
+                   <ProfileCard  
+                    name  ={loginDetails.name}
+                    email = {loginDetails.email}
+                    //image = {item.image}
+                    interest = {loginDetails.interest}
+                    branch ={loginDetails.branch}
+                    rollno={loginDetails.rollno}
+                    image={loginDetails.image}
+                   />
+                            
+                              {/* {
                 UserDetails.UserDetails.map((item) => {
             return (
                    <ProfileCard  
@@ -105,8 +117,8 @@ function UserProfile(){
                    />
                   )
                 })
-            }
-            {
+            } */}
+            {/* {
                 UserDetails.Projects.map((item)=>{
                     return(
                         <ProfileCard1
@@ -118,7 +130,7 @@ function UserProfile(){
                     )
                 }
                 )
-            }
+            } */}
         
         </div>
       )

@@ -107,7 +107,7 @@ function TotalProjects(props) {
 }
 
 function ProjectCategory(props) {
-  console.log(props.CategoryName);
+  // console.log(props.CategoryName);
 
   const [facultyData, setFacultyData] = useState([]);
 
@@ -117,7 +117,7 @@ function ProjectCategory(props) {
         const response = await axios.get(
           `https://mohdnasar.vercel.app/api/user/faculty/projects/?projectCategory=${props.CategoryName}`
         );
-        console.log(response.data);
+        // console.log(response.data);
         setFacultyData(response.data); // Assuming the response contains an array of faculty data
       } catch (error) {
         console.error("Error fetching faculty data:", error);

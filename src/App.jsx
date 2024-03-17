@@ -29,28 +29,34 @@ import ProfProfile from "./pages/ProfProfile";
 import HomeFaculty from "./pages/HomeFaculty";
 
 function App() {
-  var isWho = "faculty";
+  // var isWho = "user";
+  const [kon, setKon] = useState("user");
   const [isAuthorized, setAuthorization] = useState(false);
   const [CategoryName, setCategoryName] = useState("");
+  const [loginDetail, setLoginDetail] = useState({});
 
-  const getData = (isAuth) => {
+  const getData = (isAuth, who, loginData) => {
     // Handle data from child component
     // console.log("Data received in parent:", isAuth);
     setAuthorization(isAuth);
+    setKon(who);
+    setLoginDetail(loginData);
+    
+    console.log(`in app jsx ${loginDetail}`);
   };
 
   function getNameOfCategory(x) {
     setCategoryName(x);
   }
 
-  if (true) {
-    if (isWho === "faculty") {
+  if (isAuthorized) {
+    if (kon === "faculty") {
 
       return (
         <>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<NavBar who={"faculty"} />}>
+              <Route path="/" element={<NavBar who={kon} />}>
                 <Route path="Project_list_prof" element={<Project_list_prof />} />
                 <Route path="DataTable" element={<DataTable />} />
                 <Route path="NewProject" element={<NewProject />} />
@@ -61,20 +67,20 @@ function App() {
                 <Route path="EnrolledStudents" element={<EnrolledStudents />} />
                 <Route path="ContactUs" element={<ContactUs />} />
                 <Route path="LogOut" element={<LogOut />} />
-                <Route path="UserProfile" element={<UserProfile />} />
+                <Route path="UserProfile" element={<UserProfile loginDetail= {loginDetail} />} />
               </Route>
             </Routes>
           </BrowserRouter>
         </>
       )
 
-    } else if (isWho === "user") {
+    } else if (kon === "user") {
 
       return (
         <>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<NavBar who={isWho} />}>
+              <Route path="/" element={<NavBar who={kon} />}>
                 <Route path="DataTable" element={<DataTable />} />
                 <Route path="Faculty" element={<Faculty />}>
                   <Route path="Cse" element={<Cse />} />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import img from '../components/Faculty/users.png';
 import { useNavigate } from 'react-router-dom';
-import './profile.css';
+import './UserProfileCss.css';
 import UserDetails from './userdetails'
 
 function ProfileCard(user) {
@@ -90,7 +90,7 @@ function ProfileCard1(project) {
 
 function UserProfile(){
     return (
-        <div className='flexcard'>
+        <div className='flexcard8'>
             {
                 UserDetails.UserDetails.map((item) => {
             return (

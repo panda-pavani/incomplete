@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
 import NavBar from "./pages/NavBar";
-import DataTable from "./pages/LogOut";
+// import DataTable from "./pages/LogOut";
 import NewProject from "./pages/NewProject";
 import Faculty from "./pages/Faculty"
 // import Login from "./pages/Login";
@@ -45,6 +45,10 @@ function App() {
     console.log(`in app jsx ${loginDetail}`);
   };
 
+  const handleLogout = () => {
+    setAuthorization(false); 
+  };
+
   function getNameOfCategory(x) {
     setCategoryName(x);
   }
@@ -58,7 +62,7 @@ function App() {
             <Routes>
               <Route path="/" element={<NavBar who={kon} />}>
                 <Route path="Project_list_prof" element={<Project_list_prof />} />
-                <Route path="DataTable" element={<DataTable />} />
+                {/* <Route path="DataTable" element={<DataTable />} /> */}
                 <Route path="NewProject" element={<NewProject />} />
                 <Route path="Requests" element={<Requests />} />
                 <Route path="ProfProfile" element={<ProfProfile />} />
@@ -66,7 +70,7 @@ function App() {
                 <Route path="Home" element={<HomeFaculty />} />
                 <Route path="EnrolledStudents" element={<EnrolledStudents />} />
                 <Route path="ContactUs" element={<ContactUs />} />
-                <Route path="LogOut" element={<LogOut />} />
+                <Route path="LogOut" element={<LogOut onLogout={handleLogout} />} />
                 <Route path="UserProfile" element={<UserProfile loginDetail= {loginDetail} />} />
               </Route>
             </Routes>
@@ -81,7 +85,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<NavBar who={kon} />}>
-                <Route path="DataTable" element={<DataTable />} />
+                {/* <Route path="DataTable" element={<DataTable />} /> */}
                 <Route path="Faculty" element={<Faculty />}>
                   <Route path="Cse" element={<Cse />} />
                   <Route path="Ee" element={<Ee />} />
@@ -90,13 +94,12 @@ function App() {
                 <Route path="ContactUs" element={<ContactUs />} />
                 <Route index element={<Home />} />
                 <Route path="Home" element={<Home />} />
-                <Route path="LogOut" element={<LogOut />} />
+                <Route path="LogOut" element={<LogOut onLogout={handleLogout} />} />
                 <Route path="Student" element={<ProjectCategories getNameOfCategory={getNameOfCategory} />} />
                 <Route path="ProjectPage" element={<ProjectCategory CategoryName={CategoryName} />} />
                 <Route path="ProjectDesc" element={<ProjectDesc />} />
                 <Route path="UserProfile" element={<UserProfile />} />
                 <Route path="History" element={<History />} />
-
               </Route>
             </Routes>
           </BrowserRouter>

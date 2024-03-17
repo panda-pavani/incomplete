@@ -16,15 +16,15 @@ function HomeFaculty() {
         </p>
         <div className="explore_buttons_home">
           <Link to="/Project_list_prof">
-            <button className="explore-project">Explore Your Projects</button>
+            <button className="explore-project">Your Projects</button>
           </Link>
           <Link to="/ProfProfile">
             <button className="explore-faculty">View Profile</button>
           </Link>
         </div>
       </div>
-      <div className="home-img">
-        <img src="images/home_image_2.png" alt="" />
+      <div className="home-img-2">
+        <img src="images/prof-profile-image.png" alt="" />
       </div>
     </div>
   );

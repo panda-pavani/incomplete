@@ -29,7 +29,7 @@ import ProfProfile from "./pages/ProfProfile";
 import HomeFaculty from "./pages/HomeFaculty";
 
 function App() {
-  var isWho = "user";
+  var isWho = "faculty";
   const [isAuthorized, setAuthorization] = useState(false);
   const [CategoryName, setCategoryName] = useState("");
 
@@ -43,7 +43,7 @@ function App() {
     setCategoryName(x);
   }
 
-  if (isAuthorized) {
+  if (true) {
     if (isWho === "faculty") {
 
       return (

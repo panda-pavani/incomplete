@@ -27,6 +27,11 @@
   display: flex;
   flex-direction: column;
 }
+.home-img-2 img{
+  
+  height: 600x;
+  width: 600px;
+}
 .explore-faculty{
   border: 2px solid blue;
   background-color: rgb(255, 255, 255);

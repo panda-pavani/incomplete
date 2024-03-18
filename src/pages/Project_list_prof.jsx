@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './project_list_prof.css'
 import {Link } from "react-router-dom";
+import Loader from '../components/Faculty/Loader'
 
 function TotalProjects(props) {
   const [showDetails, setShowDetails] = useState(false);
@@ -55,6 +56,7 @@ function TotalProjects(props) {
 
 function Project_list_prof() {
   const [facultyData, setFacultyData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,13 +68,20 @@ function Project_list_prof() {
         const data = await response.json();
         setFacultyData(data);
         console.log(data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching faculty data:', error);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  // if (loading) {
+  //   return <Loader />;
+  // }
+
 
   return (
     <div>
@@ -83,8 +92,10 @@ function Project_list_prof() {
             <button>Add New Project</button>
           </Link>
         </div>
-
-        {facultyData && facultyData.projects.map((item, index) => (
+        {loading ? ( 
+        <Loader  />
+      ) : (
+        facultyData && facultyData.projects.map((item, index) => (
           <TotalProjects
             key={index}
             index={index}
@@ -96,7 +107,8 @@ function Project_list_prof() {
             resume={item.resumerequired ? 'Yes' : 'No'}
             students={item.maxstudents}
           />
-        ))}
+        ))
+      )}
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import "./projectcard.css";
 import ProjectDetails from "./projectdetails";
 import "./ProjectDesc.jsx";
 import { Link } from "react-router-dom";
+import Loader from '../Faculty/Loader'
 
 function TotalProjects(props) {
   function expand() {
@@ -107,9 +108,10 @@ function TotalProjects(props) {
 }
 
 function ProjectCategory(props) {
-  // console.log(props.CategoryName);
+  console.log(props.CategoryName);
 
   const [facultyData, setFacultyData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -117,10 +119,12 @@ function ProjectCategory(props) {
         const response = await axios.get(
           `https://mohdnasar.vercel.app/api/user/faculty/projects/?projectCategory=${props.CategoryName}`
         );
-        // console.log(response.data);
+        console.log(response.data);
         setFacultyData(response.data); // Assuming the response contains an array of faculty data
+        setLoading(false); 
       } catch (error) {
         console.error("Error fetching faculty data:", error);
+        setLoading(false); 
       }
     };
 
@@ -149,8 +153,10 @@ function ProjectCategory(props) {
         <div className="porjects-heading-note">
           <h2>Ongoing projects:-</h2>
         </div>
-     
-          {
+        
+        {loading ? ( 
+        <Loader  />
+      ) : (
             facultyData.map((item, index) => {
               return (
                 <TotalProjects
@@ -174,7 +180,7 @@ function ProjectCategory(props) {
                 />
               );
             })
-          }
+      )}
 
         {/* {facultyData.map((item) => {
   // console.log(item.name);

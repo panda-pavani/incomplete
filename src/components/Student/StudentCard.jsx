@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link } from 'react-router-dom'
 import './studentcard.css'
 import domain from './domain.js'
+import Loader from '../Faculty/Loader'
+
 import categories from './domain.js';
 
 function ProjectCategoriesCard(props) {
@@ -30,6 +32,7 @@ function ProjectCategoriesCard(props) {
 function ProjectCategories(props){
 
   const [facultyData, setFacultyData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,15 +42,21 @@ function ProjectCategories(props){
         );
         // console.log(response.data);
         setFacultyData(response.data); 
-   
+        setLoading(false); 
         // Assuming the response contains an array of faculty data
       } catch (error) {
         console.error("Error fetching faculty data:", error);
+        setLoading(false); 
       }
     };
 
     fetchData();
   }, []);
+  
+  if (loading) {
+    return <Loader  />;
+  }
+
 
        // Create a Set to store unique projectCategory values
 const uniqueCategoriesSet = new Set();

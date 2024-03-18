@@ -1,6 +1,7 @@
 import{ React, useState, useEffect }from 'react'
 import axios from 'axios';
 import './prof.css'
+import Loader from './Loader'
 // import '../../pages/Navbar.css'
 import  CseProfData from './main';
 
@@ -33,18 +34,21 @@ function ProfCard(props){
 function Prof(props) {
 
     const [facultyData, setFacultyData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [kartik, setKartik] = useState("Computer Science And Engineering")
-       const url = `https://mohdnasar.vercel.app/api/user/faculty/?department=${props.departmentName}`;
+       const url = `https://cs253backederror404teamnotfoundmohammaadnasarsiddiqui.vercel.app/api/user/faculty/?department=${props.departmentName}`;
     useEffect(() => {
       const fetchData = async () => {
         try {
           const response = await axios.get(
             url
           );
-          // console.log(response.data);
-          setFacultyData(response.data);       
+          console.log(response.data);
+          setFacultyData(response.data);
+          setLoading(false);       
         } catch (error) {
           console.error("Error fetching faculty data:", error);
+          setLoading(false);
         }
       };
   
@@ -52,24 +56,25 @@ function Prof(props) {
     }, []);
 
   return (
-    <div id='faculty-page' className='faculty-page'>
-        {
-            facultyData.map((item) => {
-              return (
-               <ProfCard 
-               department ={item.department}
-               key ={item.name}
-               name = {item.name} 
-                desig = {item.designation}
-                phone ={item.contact}
-                address = {item.address}
-                email = {item.email}
-                research ={item.research}
-               />
-              )
-            })
-        }
-    
+    <div id='faculty-page'  className='faculty-page'>
+        {loading ? ( 
+        <Loader />
+      ) : (
+        facultyData.map((item) => {
+          return (
+            <ProfCard
+              department={item.department}
+              key={item.name}
+              name={item.name}
+              desig={item.designation}
+              phone={item.contact}
+              address={item.address}
+              email={item.email}
+              research={item.research}
+            />
+          )
+        })
+      )}
     </div>
   )
 }

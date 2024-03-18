@@ -22,13 +22,13 @@ function ProfileCard(props) {
                             <h3>Name: {props.name}</h3>
                         </div>
                         <div className="profile-info-item">
-                            <h3>Roll No: {props.roll}</h3>
+                            <h3>Roll No: {props.rollno}</h3>
                         </div>
                         <div className="profile-info-item">
                             <h3>Email Id: {props.email}</h3>
                         </div>
                         <div className="profile-info-item">
-                            <h3>Department: {props.branch}</h3>
+                            <h3>Resume Link: {props.resume}</h3>
                         </div>
                         
                         <div className="table-container">
@@ -89,7 +89,7 @@ function ProfileCard1(project) {
 }
 
 function UserProfile(props){
-  const  myData = props.myRoll
+  const  myData = props.logedInStudentData
       console.log("data in userProfile: "+myData);
 //   const [oneUserData, setOneUserData] = useState(null);
 
@@ -120,7 +120,7 @@ function UserProfile(props){
                     email = {myData.email}
                     //image = {item.image}
                     interest = "no"
-                    branch ="dijfnbfnb"
+                   resume ={myData.resumeLink}
                     rollno={myData.rollno}
                     image="sjnv"
                    />

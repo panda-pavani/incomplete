@@ -27,6 +27,7 @@ import Requests from "./pages/Requests";
 import EnrolledStudents from "./pages/EnrolledStudents";
 import ProfProfile from "./pages/ProfProfile";
 import HomeFaculty from "./pages/HomeFaculty";
+import ForgotPassword from "./components/authentication/ForgotPassword";
 
 function App() {
   // var isWho = "user";
@@ -125,6 +126,8 @@ function App() {
             <Route index element={<SignIn sendDataToParent={getData} />} />
             <Route path="SignUp" element={<SignUp />} />
             <Route path="SignIn" element={<SignIn sendDataToParent={getData} />} />
+            <Route path="ForgotPassword" element={<ForgotPassword />} />
+
 
           </Routes>
         </BrowserRouter>

@@ -142,6 +142,9 @@ function SignIn(props) {
           <Link className="a" to="/SignUp">
             New Student? SignUp
           </Link>
+          <Link className="a1" to="/ForgotPassword">
+            ForgotPassword?
+          </Link>
         </div>
       </div>
     </div>

@@ -33,16 +33,16 @@ function App() {
   const [kon, setKon] = useState("user");
   const [isAuthorized, setAuthorization] = useState(false);
   const [CategoryName, setCategoryName] = useState("");
-  const [loginDetail, setLoginDetail] = useState({});
+  const[myRoll, setMyRoll] = useState(null);
+    // const [loginDetail, setLoginDetail] = useState("");
 
-  const getData = (isAuth, who, loginData) => {
+
+  const getData = (isAuth, who, ikartik) => {
     // Handle data from child component
-    // console.log("Data received in parent:", isAuth);
+    console.log("Data received in parent:", ikartik);
     setAuthorization(isAuth);
     setKon(who);
-    setLoginDetail(loginData);
-    
-    console.log(`in app jsx ${loginDetail}`);
+   setMyRoll(ikartik);
   };
 
   function getNameOfCategory(x) {
@@ -67,7 +67,7 @@ function App() {
                 <Route path="EnrolledStudents" element={<EnrolledStudents />} />
                 <Route path="ContactUs" element={<ContactUs />} />
                 <Route path="LogOut" element={<LogOut />} />
-                <Route path="UserProfile" element={<UserProfile loginDetail= {loginDetail} />} />
+                <Route path="UserProfile" element={<UserProfile myRoll= {myRoll} />} />
               </Route>
             </Routes>
           </BrowserRouter>
@@ -94,7 +94,7 @@ function App() {
                 <Route path="Student" element={<ProjectCategories getNameOfCategory={getNameOfCategory} />} />
                 <Route path="ProjectPage" element={<ProjectCategory CategoryName={CategoryName} />} />
                 <Route path="ProjectDesc" element={<ProjectDesc />} />
-                <Route path="UserProfile" element={<UserProfile />} />
+                <Route path="UserProfile" element={<UserProfile myRoll= {myRoll} />} />
                 <Route path="History" element={<History />} />
 
               </Route>
